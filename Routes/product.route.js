@@ -46,12 +46,12 @@ productRouter.get('/product', async (req, res) => {
         const limit = 4;
         const skip = (page - 1) * limit;
 
-        const products = await ProductModel.find(query)
+        const product = await ProductModel.find(query)
             .sort(sortOptions)
             .skip(skip)
             .limit(limit);
 
-        res.status(200).json(products);
+        res.status(200).json(product);
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
